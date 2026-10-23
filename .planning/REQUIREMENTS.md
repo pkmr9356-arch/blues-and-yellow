@@ -1,0 +1,91 @@
+# Requirements: Blues&Yellow
+
+**Defined:** 2026-10-24
+**Core Value:** Preserve current business purpose, features, integrations, and useful design work while methodically resolving security vulnerabilities, broken functionality, and code hygiene before applying visual polish.
+
+## v1 Requirements
+
+Requirements for initial stabilization and improvement release, prioritized by security and functional necessity.
+
+### Security & Access Control
+
+- [ ] **SEC-01**: Admin dashboard (`/admin`) and leads viewer (`/admin/leads`) are protected by Supabase Auth session verification
+- [ ] **SEC-02**: Unauthorized requests to `/admin` routes redirect to an admin authentication view
+- [ ] **SEC-03**: Server Action `submitInquiry` sanitizes and validates incoming `FormData` using Zod schema validation
+- [ ] **SEC-04**: Inbound lead inquiry submission implements rate-limiting / throttling guards against bot spam
+
+### Route Compatibility & Functional Fixes
+
+- [ ] **ROUT-01**: Dynamic portfolio case study route (`src/app/work/[slug]/page.tsx`) conforms to Next.js 16 conventions by awaiting `params`
+- [ ] **ROUT-02**: Dynamic insights route (`src/app/insights/[slug]/page.tsx`) conforms to Next.js 16 conventions by awaiting `params`
+- [ ] **ROUT-03**: Services catalog navigation resolves broken `/services/wordpress-development` destination to prevent 404 errors
+
+### Code Hygiene & Shell Consistency
+
+- [ ] **HYG-01**: Duplicate `<header>` and `<footer>` elements are removed from `src/app/page.tsx`, making `src/app/layout.tsx` the single source of truth
+- [ ] **HYG-02**: Orphaned prototype and duplicate variant files (`src/app/page-final.tsx`, `src/app/page-refined.tsx`, `src/app/page-fixed.tsx`, `src/app/globals-fixed.css`) are safely purged
+
+### Lead Intake & Contact Unification
+
+- [ ] **INTK-01**: Public contact page (`/contact`) is upgraded to use an active interactive form wired to `submitInquiry`
+- [ ] **INTK-02**: Client intake forms provide responsive feedback states for submitting, success confirmation, and validation errors
+- [ ] **INTK-03**: Lead submissions persist reliably to Supabase `leads` and dispatch Resend notification emails
+
+### SEO, Resilience & Visual Polish
+
+- [ ] **POL-01**: Core pages implement standard Next.js `metadata` exports including page titles, descriptions, and OpenGraph social preview tags
+- [ ] **POL-02**: App Router implements graceful fallback error boundaries (`error.tsx`) and loading states (`loading.tsx`)
+- [ ] **POL-03**: Existing typography (Erode), brand colors, and GSAP/Framer Motion animations are preserved with refined responsive spacing
+
+## v2 Requirements
+
+Deferred to subsequent release cycles.
+
+### Advanced Admin & CRM
+
+- **CRM-01**: Admin dashboard provides status updating (`new`, `contacted`, `closed`) for incoming leads
+- **CRM-02**: Admin can create and edit portfolio case studies via rich markdown editor
+
+### Multi-channel Notifications
+
+- **NOTF-01**: Lead inquiries trigger optional Slack/Discord webhook alerts in addition to Resend email
+
+## Out of Scope
+
+| Feature | Reason |
+|---------|--------|
+| Visual redesign or changing brand palette | Goal is explicitly to preserve established brand tokens, colors (Navy/Blue/Yellow), and typography |
+| Replacing Supabase or Resend | Established integrations are functional and fit the architecture |
+| Client billing or invoice management portal | Out of scope for agency marketing website |
+| Replacing GSAP with alternative animation library | GSAP ScrollTrigger implementation is already tuned and works well |
+
+## Traceability
+
+Which phases cover which requirements. Updated during roadmap creation.
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| SEC-01 | Phase 1 | Pending |
+| SEC-02 | Phase 1 | Pending |
+| SEC-03 | Phase 1 | Pending |
+| SEC-04 | Phase 1 | Pending |
+| ROUT-01 | Phase 1 | Pending |
+| ROUT-02 | Phase 1 | Pending |
+| ROUT-03 | Phase 1 | Pending |
+| HYG-01 | Phase 2 | Pending |
+| HYG-02 | Phase 2 | Pending |
+| INTK-01 | Phase 3 | Pending |
+| INTK-02 | Phase 3 | Pending |
+| INTK-03 | Phase 3 | Pending |
+| POL-01 | Phase 4 | Pending |
+| POL-02 | Phase 4 | Pending |
+| POL-03 | Phase 4 | Pending |
+
+**Coverage:**
+- v1 requirements: 15 total
+- Mapped to phases: 15
+- Unmapped: 0 ✓
+
+---
+*Requirements defined: 2026-10-24*
+*Last updated: 2026-10-24 after initial definition*
