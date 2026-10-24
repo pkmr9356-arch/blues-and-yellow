@@ -49,21 +49,21 @@ The portfolio case studies, benchmark statistics, and client quotes contained wi
 
 ## Technology Stack
 
-The application is built on the following verified dependencies from `package.json`:
+The application dependencies defined in `package.json` and resolved in `package-lock.json`:
 
-| Layer | Technology | Version | Purpose |
-| :--- | :--- | :--- | :--- |
-| **Framework** | [Next.js](https://nextjs.org/) | `16.4.2` | App Router, Server Components, Turbopack, Server Actions |
-| **UI Library** | [React](https://react.dev/) / [React DOM](https://react.dev/) | `18.2.0` | Component rendering engine |
-| **Language** | [TypeScript](https://www.typescriptlang.org/) | `5.3.0` | End-to-end type safety |
-| **Styling** | [Tailwind CSS](https://tailwindcss.com/) | `3.4.1` | Utility-first design tokens and responsive classes |
-| **Post-Processing** | PostCSS / Autoprefixer | `8.4.32` / `10.4.16` | CSS transformation pipeline |
-| **Animation (Scroll)** | [GSAP](https://gsap.com/) & `@gsap/react` | `3.15.0` / `2.1.2` | High-performance ScrollTrigger pinning & timeline |
-| **Animation (UI)** | [Framer Motion](https://www.framer.com/motion/) | `14.6.0` | Mobile drawer transitions & layout state animations |
-| **Backend / Auth** | `@supabase/supabase-js` / `@supabase/ssr` | `2.39.0` / `0.12.7` | PostgreSQL database client and SSR cookie management |
-| **Transactional Email** | [Resend](https://resend.com/) | `3.2.0` | Email dispatch for prospective lead inquiries |
-| **Validation** | [Zod](https://zod.dev/) | `3.22.4` | Server Action schema validation & input sanitization |
-| **Linting** | ESLint & `eslint-config-next` | `8.55.0` / `16.4.2` | Static code analysis |
+| Layer | Package / Technology | Declared (`package.json`) | Resolved (`package-lock.json`) | Purpose |
+| :--- | :--- | :--- | :--- | :--- |
+| **Framework** | [Next.js](https://nextjs.org/) | `^16.4.2` | `16.4.2` | App Router, Server Components, Turbopack, Server Actions |
+| **UI Library** | [React](https://react.dev/) / [React DOM](https://react.dev/) | `^18.2.0` | `18.3.1` | UI rendering engine |
+| **Language** | [TypeScript](https://www.typescriptlang.org/) | `^5.3.0` | `5.9.3` | Type safety & compilation |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) | `^3.4.1` | `3.4.19` | Utility-first design tokens & responsive classes |
+| **Post-Processing** | PostCSS / Autoprefixer | `^8.4.32` / `^10.4.16` | `8.5.31` / `10.6.1` | CSS transformation & vendor prefixing |
+| **Animation (Scroll)** | [GSAP](https://gsap.com/) & `@gsap/react` | `^3.15.0` / `^2.1.2` | `3.15.0` / `2.1.2` | ScrollTrigger horizontal text pinning & timeline |
+| **Animation (UI)** | [Framer Motion](https://www.framer.com/motion/) | `^14.6.0` | `14.6.0` | Mobile drawer & layout transitions |
+| **Backend / Auth** | `@supabase/supabase-js` / `@supabase/ssr` | `^2.39.0` / `^0.12.7` | `2.118.0` / `0.12.7` | PostgreSQL client & SSR cookie session management |
+| **Transactional Email** | [Resend](https://resend.com/) | `^3.2.0` | `3.5.0` | Transactional email notification dispatch |
+| **Validation** | [Zod](https://zod.dev/) | `^3.22.4` | `3.25.76` | Server Action schema validation & input sanitization |
+| **Linting** | ESLint & `eslint-config-next` | `^8.55.0` / `^16.4.2` | `8.57.1` / `16.4.2` | Static code analysis |
 
 ---
 
@@ -131,7 +131,7 @@ All 21 App Router routes compile cleanly and have been validated against product
 
 ## Prerequisites
 
-- **Node.js**: `>= 18.0.0` (Node.js 20+ LTS recommended)
+- **Node.js**: `>= 20.9.0` (Engine requirement for Next.js 16; Node.js 20 or 22+ LTS recommended)
 - **Package Manager**: `npm` (`>= 9.0.0`)
 - **Git**: For version control and deployment workflows
 
