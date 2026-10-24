@@ -2,89 +2,71 @@
 
 ## Overview
 
-Stabilize and elevate the Blues&Yellow agency web platform by addressing critical security vulnerabilities and Next.js 16 functional breakages first, cleaning structural code hygiene, unifying lead capture mechanisms, and finishing with SEO and visual polish while preserving existing brand tokens and animations.
+Stabilize and elevate the Blues&Yellow agency web platform by addressing critical security vulnerabilities and Next.js 16 functional breakages first (v1.0), followed by an end-to-end UI/UX Pro Max upgrade (v1.1) addressing design tokens, typography, accessibility, missing legal routes, component consolidation, and homepage storytelling.
 
-## Phases
+## Milestones
 
-**Phase Numbering:**
-- Integer phases (1, 2, 3): Planned milestone work
-- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
+- [x] **Milestone v1.0: Foundation, Security & Stability** (Phases 1-4 completed 2026-10-24)
+- [x] **Milestone v1.1: UI/UX & Frontend Quality Implementation** (Phases 5-9 completed 2026-10-24)
+- [x] **Milestone v1.2: Complete Premium Website Redesign & Quality Recovery** (Phases 10-13 completed 2026-10-24)
 
-Decimal phases appear between their surrounding integers in numeric order.
+## Phases (Milestone v1.2)
 
-- [ ] **Phase 1: Security & Route Fixes** - Protect admin endpoints, await Next.js 16 dynamic route params, fix broken services link, and validate server action inputs
-- [ ] **Phase 2: Codebase Hygiene & Shell Consistency** - Remove duplicate header/footer in home page and delete orphaned prototype variant files
-- [ ] **Phase 3: Lead Intake & Contact Unification** - Unify `/contact` and `/start-a-project` inquiry forms with interactive feedback and Resend delivery
-- [ ] **Phase 4: SEO, Resilience & Visual Polish** - Implement metadata, OpenGraph tags, loading/error boundaries, and verify responsive design and animations
+- [x] **Phase 10: Creative Direction, Hero Redesign & Protected Horizontal-Scroll Elevation** - Transform hero into an editorial sentence-as-layout composition; preserve and polish the protected GSAP horizontal scroll.
+- [x] **Phase 11: Site-Wide Editorial Redesign & Slop Elimination** - Elevate Services, Portfolio, About, Insights, and Contact routes; eliminate card grids, rest shadows, and generic marketing copy.
+- [x] **Phase 12: Footer Defect Remediation & Open License Compliance** - Correct media credit license hyperlinks, complete service directory navigation, and achieve WCAG 2.1 AA contrast compliance.
+- [x] **Phase 13: End-to-End Verification, Performance & Responsive QA** - Run build, ESLint, Taste Skill linter & inspector (390px, 768px, 1440px), and verify visual fidelity.
 
-## Phase Details
+## Phases (Milestone v1.1)
 
-### Phase 1: Security & Route Fixes
-**Goal**: Secure admin routes with Supabase Auth, fix Next.js 16 dynamic route parameter handling, resolve 404 service links, and enforce Zod validation on Server Actions.
-**Mode**: mvp
-**Depends on**: Nothing (first phase)
-**Requirements**: [SEC-01, SEC-02, SEC-03, SEC-04, ROUT-01, ROUT-02, ROUT-03]
-**Success Criteria** (what must be TRUE):
-  1. Unauthenticated visits to `/admin` or `/admin/leads` are blocked and redirected to an admin authentication view.
-  2. Dynamic routes `/work/[slug]` and `/insights/[slug]` await `params` as required in Next.js 16, resolving cleanly without runtime warnings or errors.
-  3. All services links on `/services` route to valid destinations without producing a 404 error.
-  4. Server Action `submitInquiry` validates input format using Zod and rejects malformed or abusive submissions.
-**Plans**: 2 plans
+- [x] **Phase 5: Design Tokens & Typography Foundation** - Consolidate token architecture, define missing CSS variables, and activate Erode typography in Tailwind.
+- [x] **Phase 6: Accessibility, Navigation & Route Integrity** - Fix mobile navigation a11y, header logo contrast, form error announcements, and add privacy/terms legal routes.
+- [x] **Phase 7: Component Consolidation & GSAP Horizontal Scroll** - Update ServicesGrid, replace beverage copy in HorizontalScroll with authentic agency copy, and improve case study showcases.
+- [x] **Phase 8: Homepage & Service Pages UX Elevation** - Redesign homepage flow with elevated hero, agency pillars, integrated ServicesGrid, HorizontalScroll, and high-conversion CTAs.
+- [x] **Phase 9: Comprehensive Verification & Quality Gates** - Validate token coverage, TypeScript types, Next.js production build, and generate final report.
 
-Plans:
-- [ ] 01-01: Admin Route Authentication & Middleware with Supabase
-- [ ] 01-02: Next.js 16 Async Dynamic Route Fixes, Services Route Fix & Server Action Zod Validation
+## Phase Details (v1.1)
 
-### Phase 2: Codebase Hygiene & Shell Consistency
-**Goal**: Normalize global layout structure by eliminating redundant header/footer markup from `src/app/page.tsx` and pruning dead prototype variant files.
-**Mode**: mvp
-**Depends on**: Phase 1
-**Requirements**: [HYG-01, HYG-02]
-**Success Criteria** (what must be TRUE):
-  1. The agency landing page (`/`) renders a single header and footer provided by `src/app/layout.tsx`.
-  2. Orphaned prototype files (`page-final.tsx`, `page-refined.tsx`, `page-fixed.tsx`, `globals-fixed.css`) are safely purged.
-**Plans**: 1 plan
+### Phase 5: Design Tokens & Typography Foundation
+**Goal**: Resolve all undefined CSS variables, harmonize Tailwind and CSS custom properties, and activate Erode typography.
+**Requirements**: [TOK-01, TYP-01]
+**Success Criteria**:
+  1. All `var(--navy)`, `var(--blue)`, `var(--border)`, etc. references resolve to verified brand hex codes in `globals.css`.
+  2. Tailwind config provides `font-serif` / `font-display` mapped to `Erode` with sensible sans fallbacks.
+  3. No broken button backgrounds or unstyled borders caused by invalid CSS variable resolution.
 
-Plans:
-- [ ] 02-01: Layout Shell Normalization & Dead File Pruning
+### Phase 6: Accessibility, Navigation & Route Integrity
+**Goal**: Ensure WCAG AA compliance for header/logo contrast, accessible mobile drawer navigation, form error announcements, and valid legal routes.
+**Requirements**: [A11Y-01, A11Y-02, ROUT-04, LEG-01]
+**Success Criteria**:
+  1. Header logo meets WCAG 2.1 AA contrast requirements against light ground.
+  2. Mobile navigation provides `aria-expanded`, `aria-controls`, and `Escape` key dismissal.
+  3. Inquiry form announces submission errors via `role="alert"` and marks invalid inputs with `aria-invalid`.
+  4. Routes `/privacy-policy` and `/terms` exist and render accurate agency policy and terms content.
+  5. All service subpage CTA buttons use Next.js `<Link>` instead of `<a href>`.
 
-### Phase 3: Lead Intake & Contact Unification
-**Goal**: Unify client lead intake flows across `/contact` and `/start-a-project` with full client status feedback and reliable Supabase/Resend delivery.
-**Mode**: mvp
-**Depends on**: Phase 2
-**Requirements**: [INTK-01, INTK-02, INTK-03]
-**Success Criteria** (what must be TRUE):
-  1. The `/contact` route uses an active, interactive form wired to `submitInquiry` rather than an inert HTML form.
-  2. Inbound inquiries provide clear UI feedback for submitting, success confirmation, and validation errors.
-  3. Inquiries persist accurately to the Supabase `leads` table and trigger Resend email alerts.
-**Plans**: 1 plan
+### Phase 7: Component Consolidation & GSAP Horizontal Scroll
+**Goal**: Modernize orphaned components, eliminate beverage placeholder text, and integrate real agency capabilities.
+**Requirements**: [COMP-01, COMP-02, WORK-01]
+**Success Criteria**:
+  1. `ServicesGrid.tsx` is updated with clean token classes and interactive card styling.
+  2. `HorizontalScroll.tsx` text replaced with authentic agency capabilities narrative; reduced-motion fallback verified.
+  3. `/work` portfolio gracefully handles empty database states with demonstration preview cards.
 
-Plans:
-- [ ] 03-01: Unified Contact Form Integration & Notification Flow
+### Phase 8: Homepage & Service Pages UX Elevation
+**Goal**: Transform the landing page into a cohesive, responsive, high-converting digital agency presentation.
+**Requirements**: [HOME-01, HOME-02, HOME-03]
+**Success Criteria**:
+  1. Homepage features an elevated hero with Erode typography, agency pillars, integrated ServicesGrid, and HorizontalScroll.
+  2. Clear CTA placement and mobile-first responsive design across 375px, 768px, and 1280px+ breakpoints.
+  3. Animations leverage installed Framer Motion and GSAP without layout shifts or performance jank.
 
-### Phase 4: SEO, Resilience & Visual Polish
-**Goal**: Equip the platform with Next.js metadata, OpenGraph tags, App Router fault-tolerant boundaries, and responsive visual polish while preserving brand typography and animations.
-**Mode**: mvp
-**Depends on**: Phase 3
-**Requirements**: [POL-01, POL-02, POL-03]
-**Success Criteria** (what must be TRUE):
-  1. Core pages export Next.js `metadata` with descriptive titles, descriptions, and OpenGraph social previews.
-  2. App Router implements `loading.tsx` and `error.tsx` boundary files to handle network latency and unexpected query failures gracefully.
-  3. Brand colors, Erode typography, and GSAP/Framer Motion animations render consistently across mobile and desktop devices.
-**Plans**: 2 plans
+### Phase 9: Comprehensive Verification & Quality Gates
+**Goal**: Verify all fixes across the site, confirm zero regressions, and run build checks.
+**Requirements**: [VERIF-01]
+**Success Criteria**:
+  1. Zero unresolved CSS variable references in UI.
+  2. TypeScript compilation passes cleanly.
+  3. Next.js production build succeeds.
+  4. Final execution report delivered.
 
-Plans:
-- [ ] 04-01: SEO Metadata & App Router Error/Loading Boundaries
-- [ ] 04-02: Responsive Visual Polish & Animation Verification
-
-## Progress
-
-**Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
-
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Security & Route Fixes | 0/2 | Not started | - |
-| 2. Codebase Hygiene & Shell Consistency | 0/1 | Not started | - |
-| 3. Lead Intake & Contact Unification | 0/1 | Not started | - |
-| 4. SEO, Resilience & Visual Polish | 0/2 | Not started | - |

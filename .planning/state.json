@@ -1,0 +1,21 @@
+{
+  "contract": "1.0.0",
+  "flavor": "core",
+  "milestone": "v1.2",
+  "phases": [
+    { "number": "1", "name": "Security & Route Fixes", "status": "complete" },
+    { "number": "2", "name": "Codebase Hygiene & Shell Consistency", "status": "complete" },
+    { "number": "3", "name": "Lead Intake & Contact Unification", "status": "complete" },
+    { "number": "4", "name": "SEO, Resilience & Visual Polish", "status": "complete" },
+    { "number": "10", "name": "Hero Redesign & Horizontal Scroll", "status": "complete" },
+    { "number": "11", "name": "Site-Wide Editorial Redesign", "status": "complete" },
+    { "number": "12", "name": "Footer Defect Remediation & Open License Compliance", "status": "complete" },
+    { "number": "13", "name": "End-to-End Verification, Performance & Responsive QA", "status": "complete" }
+  ],
+  "next": {
+    "command": "/gsd-progress",
+    "label": "All phases complete",
+    "reason": "Milestone v1.2 Complete Premium Website Redesign & Quality Recovery completed"
+  },
+  "updated_at": "2026-10-25T00:58:00.000Z"
+}

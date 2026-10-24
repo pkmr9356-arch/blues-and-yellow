@@ -23,16 +23,17 @@ Preserve current business purpose, features, integrations, and useful design wor
 - ✓ Project inquiry submission via Next.js Server Action (`submitInquiry`) with Resend email notification — existing
 - ✓ Custom branding design tokens with Tailwind CSS and Fontshare Erode typography — existing
 - ✓ GSAP ScrollTrigger and Framer Motion animation foundations — existing
+- ✓ Secure Admin endpoints (`/admin` and `/admin/leads`) using Supabase Auth session protection and fail-closed allowlist — v1.0
+- ✓ Fix Next.js 16 breaking change in dynamic route params (`src/app/work/[slug]/page.tsx`, `src/app/insights/[slug]/page.tsx`) by properly awaiting asynchronous `params` — v1.0
+- ✓ Resolve 404 broken route link on services overview for `/services/wordpress-development` — v1.0
+- ✓ Wire `/contact` page form to active `ProjectInquiryForm` and validate inputs server-side with Zod — v1.0
+- ✓ Eliminate duplicate `<header>` and `<footer>` on home page (`src/app/page.tsx`) and clean up dead prototype files (`page-final.tsx`, `page-refined.tsx`, `page-fixed.tsx`, `globals-fixed.css`) — v1.0
+- ✓ Implement rate limiting and bot honeypot safeguards on lead inquiry endpoints — v1.0
+- ✓ Add dynamic SEO metadata, OpenGraph tags, and App Router `loading.tsx` / `error.tsx` boundary states — v1.0
 
 ### Active
 
-- [ ] Secure Admin endpoints (`/admin` and `/admin/leads`) using Supabase Auth session protection
-- [ ] Fix Next.js 16 breaking change in dynamic route params (`src/app/work/[slug]/page.tsx`, `src/app/insights/[slug]/page.tsx`) by properly awaiting asynchronous `params`
-- [ ] Resolve 404 broken route link on services overview for `/services/wordpress-development`
-- [ ] Wire `/contact` page form to active `ProjectInquiryForm` and validate inputs server-side with Zod
-- [ ] Eliminate duplicate `<header>` and `<footer>` on home page (`src/app/page.tsx`) and clean up dead prototype files (`page-final.tsx`, `page-refined.tsx`, `page-fixed.tsx`, `globals-fixed.css`)
-- [ ] Implement rate limiting and anti-abuse safeguards on lead inquiry endpoints
-- [ ] Add dynamic SEO metadata, OpenGraph tags, and App Router `loading.tsx` / `error.tsx` boundary states
+- [ ] (Milestone v1.0 Complete — Ready to plan v1.1)
 
 ### Out of Scope
 
@@ -57,9 +58,11 @@ Preserve current business purpose, features, integrations, and useful design wor
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Implement Supabase Auth for `/admin` | Leverages already installed `@supabase/supabase-js` and `@supabase/ssr` without new vendor dependencies | — Pending |
-| Improvements prioritized: Security & Fixes before Polish | Ensures platform stability, data privacy, and working conversion funnels before visual enhancements | — Pending |
-| Clean up duplicate home page shell | Resolves header/footer flashing and double rendering while maintaining single source of truth in `layout.tsx` | — Pending |
+| Implement Supabase Auth for `/admin` | Leverages already installed `@supabase/supabase-js` and `@supabase/ssr` without new vendor dependencies | ✓ Good |
+| Improvements prioritized: Security & Fixes before Polish | Ensures platform stability, data privacy, and working conversion funnels before visual enhancements | ✓ Good |
+| Clean up duplicate home page shell | Resolves header/footer flashing and double rendering while maintaining single source of truth in `layout.tsx` | ✓ Good |
+| Reusable ProjectInquiryForm | Unifies lead intake, Zod validation, and honeypot across /contact and /start-a-project | ✓ Good |
+| App Router Resilience Boundaries | loading.tsx and error.tsx provide user recovery and visual feedback during latency | ✓ Good |
 
 ## Evolution
 
@@ -79,4 +82,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-10-24 after initialization*
+*Last updated: 2026-10-24 after v1.0 milestone*

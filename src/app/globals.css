@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Consolidated Design Tokens for Blues&Yellow */
+
+:root {
+  /* Ground & Surfaces */
+  --bg: #FFFFFF;          /* Pure white ground */
+  --surface: #F8FAFC;     /* Off-white surface / slate-50 */
+  --off-white: #F8FAFC;
+  --cream: #FEFCE8;
+
+  /* Brand Palette */
+  --navy: #0F1729;         /* Core brand Navy */
+  --navy-light: #1A2744;
+  --blue: #2563EB;         /* Primary Accent Blue */
+  --blue-dark: #1D4ED8;
+  --blue-light: #3B82F6;
+  --yellow: #FBBF24;       /* Brand Yellow / Amber */
+  --yellow-light: #FCD34D;
+  --yellow-dark: #F59E0B;
+
+  /* Borders & Dividers */
+  --border: #E2E8F0;
+  --border-light: #F1F5F9;
+
+  /* Semantic Text & Ink */
+  --ink: #0F1729;          /* Navy ink - full contrast for text */
+  --muted: #64748B;        /* Slate-500 for secondary descriptions */
+  --text-primary: #0F1729;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+
+  /* Action States */
+  --accent: #2563EB;       /* Blue accent - for primary interactive triggers */
+  --accent-ink: #FFFFFF;   /* White text on accent */
+
+  /* Fluid Typography Scale */
+  --font-display: clamp(2.75rem, 1.8rem + 4.5vw, 5.5rem);
+  --font-h1: clamp(2.25rem, 1.3rem + 3vw, 3.75rem);
+  --font-h2: clamp(1.75rem, 1.1rem + 1.8vw, 2.75rem);
+  --font-h3: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+  --font-body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --font-small: clamp(0.85rem, 0.8rem + 0.1vw, 0.925rem);
+
+  /* Variable Aliases matching JSX references */
+  --text-display: var(--font-display);
+  --text-h1: var(--font-h1);
+  --text-h2: var(--font-h2);
+  --text-h3: var(--font-h3);
+  --text-body: var(--font-body);
+  --text-small: var(--font-small);
+
+  /* Spacing Scale */
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-erode), 'Erode', Georgia, serif;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  h1 { font-size: var(--font-display); line-height: 0.98; letter-spacing: -0.03em; }
+  h2 { font-size: var(--font-h1); }
+  h3 { font-size: var(--font-h2); }
+  h4 { font-size: var(--font-h3); }
+  p  { font-size: var(--font-body); color: var(--ink); }
+  .text-muted { color: var(--muted); font-size: var(--font-small); }
+
+  a {
+    color: var(--accent);
+    transition: color 0.2s ease;
+  }
+  a:hover { text-decoration: underline; }
+
+  *:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* Tasteskill utilities */
+@layer utilities {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 1440px;
+  }
+
+  /* Animation helpers - only transforms and opacity */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(2rem); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+  .animate-fade-in   { animation: fadeIn 0.4s ease-out forwards; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

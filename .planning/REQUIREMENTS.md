@@ -9,33 +9,33 @@ Requirements for initial stabilization and improvement release, prioritized by s
 
 ### Security & Access Control
 
-- [ ] **SEC-01**: Admin dashboard (`/admin`) and leads viewer (`/admin/leads`) are protected by Supabase Auth session verification
-- [ ] **SEC-02**: Unauthorized requests to `/admin` routes redirect to an admin authentication view
-- [ ] **SEC-03**: Server Action `submitInquiry` sanitizes and validates incoming `FormData` using Zod schema validation
-- [ ] **SEC-04**: Inbound lead inquiry submission implements rate-limiting / throttling guards against bot spam
+- [x] **SEC-01**: Admin dashboard (`/admin`) and leads viewer (`/admin/leads`) are protected by Supabase Auth session verification
+- [x] **SEC-02**: Unauthorized requests to `/admin` routes redirect to an admin authentication view
+- [x] **SEC-03**: Server Action `submitInquiry` sanitizes and validates incoming `FormData` using Zod schema validation
+- [x] **SEC-04**: Inbound lead inquiry submission implements rate-limiting / throttling guards against bot spam
 
 ### Route Compatibility & Functional Fixes
 
-- [ ] **ROUT-01**: Dynamic portfolio case study route (`src/app/work/[slug]/page.tsx`) conforms to Next.js 16 conventions by awaiting `params`
-- [ ] **ROUT-02**: Dynamic insights route (`src/app/insights/[slug]/page.tsx`) conforms to Next.js 16 conventions by awaiting `params`
-- [ ] **ROUT-03**: Services catalog navigation resolves broken `/services/wordpress-development` destination to prevent 404 errors
+- [x] **ROUT-01**: Dynamic portfolio case study route (`src/app/work/[slug]/page.tsx`) conforms to Next.js 16 conventions by awaiting `params`
+- [x] **ROUT-02**: Dynamic insights route (`src/app/insights/[slug]/page.tsx`) conforms to Next.js 16 conventions by awaiting `params`
+- [x] **ROUT-03**: Services catalog navigation resolves broken `/services/wordpress-development` destination to prevent 404 errors
 
 ### Code Hygiene & Shell Consistency
 
-- [ ] **HYG-01**: Duplicate `<header>` and `<footer>` elements are removed from `src/app/page.tsx`, making `src/app/layout.tsx` the single source of truth
-- [ ] **HYG-02**: Orphaned prototype and duplicate variant files (`src/app/page-final.tsx`, `src/app/page-refined.tsx`, `src/app/page-fixed.tsx`, `src/app/globals-fixed.css`) are safely purged
+- [x] **HYG-01**: Duplicate `<header>` and `<footer>` elements are removed from `src/app/page.tsx`, making `src/app/layout.tsx` the single source of truth
+- [x] **HYG-02**: Orphaned prototype and duplicate variant files (`src/app/page-final.tsx`, `src/app/page-refined.tsx`, `src/app/page-fixed.tsx`, `src/app/globals-fixed.css`) are safely purged
 
 ### Lead Intake & Contact Unification
 
-- [ ] **INTK-01**: Public contact page (`/contact`) is upgraded to use an active interactive form wired to `submitInquiry`
-- [ ] **INTK-02**: Client intake forms provide responsive feedback states for submitting, success confirmation, and validation errors
-- [ ] **INTK-03**: Lead submissions persist reliably to Supabase `leads` and dispatch Resend notification emails
+- [x] **INTK-01**: Public contact page (`/contact`) is upgraded to use an active interactive form wired to `submitInquiry`
+- [x] **INTK-02**: Client intake forms provide responsive feedback states for submitting, success confirmation, and validation errors
+- [x] **INTK-03**: Lead submissions persist reliably to Supabase `leads` and dispatch Resend notification emails
 
 ### SEO, Resilience & Visual Polish
 
-- [ ] **POL-01**: Core pages implement standard Next.js `metadata` exports including page titles, descriptions, and OpenGraph social preview tags
-- [ ] **POL-02**: App Router implements graceful fallback error boundaries (`error.tsx`) and loading states (`loading.tsx`)
-- [ ] **POL-03**: Existing typography (Erode), brand colors, and GSAP/Framer Motion animations are preserved with refined responsive spacing
+- [x] **POL-01**: Core pages implement standard Next.js `metadata` exports including page titles, descriptions, and OpenGraph social preview tags
+- [x] **POL-02**: App Router implements graceful fallback error boundaries (`error.tsx`) and loading states (`loading.tsx`)
+- [x] **POL-03**: Existing typography (Erode), brand colors, and GSAP/Framer Motion animations are preserved with refined responsive spacing
 
 ## v2 Requirements
 
@@ -65,21 +65,21 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SEC-01 | Phase 1 | Pending |
-| SEC-02 | Phase 1 | Pending |
-| SEC-03 | Phase 1 | Pending |
-| SEC-04 | Phase 1 | Pending |
-| ROUT-01 | Phase 1 | Pending |
-| ROUT-02 | Phase 1 | Pending |
-| ROUT-03 | Phase 1 | Pending |
-| HYG-01 | Phase 2 | Pending |
-| HYG-02 | Phase 2 | Pending |
-| INTK-01 | Phase 3 | Pending |
-| INTK-02 | Phase 3 | Pending |
-| INTK-03 | Phase 3 | Pending |
-| POL-01 | Phase 4 | Pending |
-| POL-02 | Phase 4 | Pending |
-| POL-03 | Phase 4 | Pending |
+| SEC-01 | Phase 1 | Satisfied |
+| SEC-02 | Phase 1 | Satisfied |
+| SEC-03 | Phase 1 | Satisfied |
+| SEC-04 | Phase 1 | Satisfied |
+| ROUT-01 | Phase 1 | Satisfied |
+| ROUT-02 | Phase 1 | Satisfied |
+| ROUT-03 | Phase 1 | Satisfied |
+| HYG-01 | Phase 2 | Satisfied |
+| HYG-02 | Phase 2 | Satisfied |
+| INTK-01 | Phase 3 | Satisfied |
+| INTK-02 | Phase 3 | Satisfied |
+| INTK-03 | Phase 3 | Satisfied |
+| POL-01 | Phase 4 | Satisfied |
+| POL-02 | Phase 4 | Satisfied |
+| POL-03 | Phase 4 | Satisfied |
 
 **Coverage:**
 - v1 requirements: 15 total
